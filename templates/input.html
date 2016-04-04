@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Transcribir Video para Transcribir</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/validate.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/loading.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'js/select.js') }}"></script>	
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/template.css') }}">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+</head>
+
+<body>
+<div class="row">
+ <div class="col-sm-offset-4 col-sm-4">
+     <form action="." method="post" id="formvideo">
+	   <div class="form-group">
+            <select class="selectpicker" title="Choose LAN/IDIOMA" name="video_lan">
+             <option value="es-ES">Espanol (ES)</option>
+             <option value="en-US">English (US)</option>
+            </select><br>
+            <label for="validate-video">Pega Youtube Url</label>
+		<div class="input-group" data-validate="video">
+		<input type="text" class="form-control" name="video_url" id="validate-video" placeholder="Valida Youtube Url" required>
+		<span class="input-group-addon danger"><span class="glyphicon glyphicon-remove"></span></span>
+	        </div>
+	   </div>
+                <button type="submit" id="btn" class="btn btn-primary col-xs-12" disabled onClick="loading();">Enviar</button>
+      </form>
+ </div>
+</div>
+  
+<div class="col-sm-offset-4 col-sm-4" id="loading"></div>
+
+<div class="col-sm-offset-4 col-sm-4" id="result">{% block results %}
+
+{% endblock %}</div>
+
+</body>
+
+</html>
